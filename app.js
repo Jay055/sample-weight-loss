@@ -1,122 +1,194 @@
 const treatments = {
   weekly: {
     title: "Weekly treatment option",
-    intro: "A placeholder page showing how a prescription treatment could be explained clearly before a consultation.",
-    what: "Production copy would describe the approved indication, how the treatment is used, common side effects and key safety information."
+    intro: "A clear, education-first treatment page that explains the pathway before a visitor commits to a consultation.",
+    what: "Production content would cover the medicine's approved indication, how it is used, common side effects, major safety information, and the clinical checks required before prescribing."
   },
   alternative: {
-    title: "Alternative weekly option",
-    intro: "A second example pathway, designed to show how customers can compare treatment information without being pushed directly into a purchase.",
-    what: "This section would use clinically and legally approved content specific to the actual medicine offered."
+    title: "Alternative treatment option",
+    intro: "A second example pathway showing how visitors can compare options without the website pretending to make a medical decision for them.",
+    what: "The live version should use clinically and legally approved information specific to the actual medicine offered."
   },
   programme: {
     title: "Clinician-led programme",
-    intro: "A non-product pathway combining professional review with structured lifestyle support.",
-    what: "The real programme description could cover consultations, nutrition support, check-ins, behavioural guidance and eligibility."
+    intro: "A support-led pathway for visitors who want structure, professional guidance, and sustainable behaviour change.",
+    what: "The final programme page could explain consultations, nutrition support, check-ins, behavioural guidance, pricing, and what is included."
   }
 };
 
-const state = {age:null,height:175,weight:85,goal:null,activity:null};
+const state = { age: null, height: 175, weight: 85, goal: null, activity: null };
 let step = 1;
+let lastFocusedElement = null;
 
-const modal = document.getElementById("treatmentModal");
-const shell = document.getElementById("assessmentShell");
-const progress = document.getElementById("progressBar");
+const modalShell = document.getElementById("treatmentModal");
+const modal = modalShell.querySelector(".modal");
+const assessmentShell = document.getElementById("assessmentShell");
+const progressBar = document.getElementById("progressBar");
+const progressRoot = document.querySelector(".assessment-progress");
 const toast = document.getElementById("toast");
 
-function showToast(message){
+function showToast(message) {
   toast.textContent = message;
   toast.classList.add("show");
-  setTimeout(()=>toast.classList.remove("show"),2200);
+  window.clearTimeout(showToast.timer);
+  showToast.timer = window.setTimeout(() => toast.classList.remove("show"), 2600);
 }
 
-document.querySelectorAll("[data-treatment]").forEach(button=>{
-  button.addEventListener("click",()=>{
-    const item = treatments[button.dataset.treatment];
-    document.getElementById("treatmentTitle").textContent = item.title;
-    document.getElementById("treatmentIntro").textContent = item.intro;
-    document.getElementById("treatmentWhat").textContent = item.what;
-    modal.classList.add("open");
-    modal.setAttribute("aria-hidden","false");
-  });
+function lockPage() {
+  document.body.classList.add("locked");
+}
+
+function unlockPage() {
+  if (!modalShell.classList.contains("open") && !assessmentShell.classList.contains("open")) {
+    document.body.classList.remove("locked");
+  }
+}
+
+function openTreatment(button) {
+  const item = treatments[button.dataset.treatment];
+  lastFocusedElement = button;
+  document.getElementById("treatmentTitle").textContent = item.title;
+  document.getElementById("treatmentIntro").textContent = item.intro;
+  document.getElementById("treatmentWhat").textContent = item.what;
+  modalShell.classList.add("open");
+  modalShell.setAttribute("aria-hidden", "false");
+  lockPage();
+  window.setTimeout(() => modal.focus(), 0);
+}
+
+function closeTreatment() {
+  modalShell.classList.remove("open");
+  modalShell.setAttribute("aria-hidden", "true");
+  unlockPage();
+  lastFocusedElement?.focus();
+}
+
+document.querySelectorAll("[data-treatment]").forEach(button => {
+  button.addEventListener("click", () => openTreatment(button));
 });
-document.querySelectorAll("[data-close-treatment]").forEach(el=>el.addEventListener("click",()=>{
-  modal.classList.remove("open"); modal.setAttribute("aria-hidden","true");
-}));
+document.querySelectorAll("[data-close-treatment]").forEach(el => {
+  el.addEventListener("click", closeTreatment);
+});
 
-function renderStep(){
-  document.querySelectorAll(".assessment-step").forEach(el=>el.classList.toggle("active",Number(el.dataset.step)===step));
-  progress.style.width = Math.min(((step-1)/5)*100,100)+"%";
+function renderStep() {
+  document.querySelectorAll(".assessment-step").forEach(el => {
+    el.classList.toggle("active", Number(el.dataset.step) === step);
+  });
+
+  const percentage = Math.min(((step - 1) / 5) * 100, 100);
+  progressBar.style.width = percentage + "%";
+  progressRoot.setAttribute("aria-valuenow", String(percentage));
+
+  const activeStep = document.querySelector('.assessment-step[data-step="' + step + '"]');
+  const firstControl = activeStep?.querySelector(".choice, input, .button:not(:disabled)");
+  window.setTimeout(() => firstControl?.focus(), 40);
 }
-function startAssessment(){
-  modal.classList.remove("open");
-  shell.classList.add("open");
-  shell.setAttribute("aria-hidden","false");
-  document.body.style.overflow="hidden";
+
+function startAssessment(event) {
+  if (event?.currentTarget) lastFocusedElement = event.currentTarget;
+  modalShell.classList.remove("open");
+  modalShell.setAttribute("aria-hidden", "true");
+  assessmentShell.classList.add("open");
+  assessmentShell.setAttribute("aria-hidden", "false");
+  lockPage();
   renderStep();
 }
-document.querySelectorAll("[data-start-assessment]").forEach(el=>el.addEventListener("click",startAssessment));
-document.getElementById("closeAssessment").addEventListener("click",()=>{
-  shell.classList.remove("open");
-  shell.setAttribute("aria-hidden","true");
-  document.body.style.overflow="";
-});
 
-document.querySelectorAll(".choice").forEach(choice=>{
-  choice.addEventListener("click",()=>{
+function closeAssessment() {
+  assessmentShell.classList.remove("open");
+  assessmentShell.setAttribute("aria-hidden", "true");
+  unlockPage();
+  lastFocusedElement?.focus();
+}
+
+document.querySelectorAll("[data-start-assessment]").forEach(el => {
+  el.addEventListener("click", startAssessment);
+});
+document.getElementById("closeAssessment").addEventListener("click", closeAssessment);
+
+document.querySelectorAll(".choice").forEach(choice => {
+  choice.addEventListener("click", () => {
     const field = choice.dataset.field;
     const group = choice.closest(".assessment-step");
-    group.querySelectorAll('[data-field="'+field+'"]').forEach(x=>x.classList.remove("selected"));
+
+    group.querySelectorAll('[data-field="' + field + '"]').forEach(item => {
+      item.classList.remove("selected");
+      item.setAttribute("aria-pressed", "false");
+    });
+
     choice.classList.add("selected");
-    state[field]=choice.dataset.value;
-    group.querySelector(".assessment-next").disabled=false;
+    choice.setAttribute("aria-pressed", "true");
+    state[field] = choice.dataset.value;
+
+    const next = group.querySelector(".assessment-next");
+    if (next) next.disabled = false;
   });
 });
 
-document.querySelectorAll(".assessment-next").forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    if(step<5){ step++; renderStep(); }
-    else {
-      step=6;
-      document.getElementById("resultSummary").innerHTML =
-        "<strong>Your answers</strong><br>"+
-        "Age: "+(state.age||"—")+"<br>"+
-        "Height: "+state.height+" cm<br>"+
-        "Weight: "+state.weight+" kg<br>"+
-        "Goal: "+(state.goal||"—")+"<br>"+
-        "Activity: "+(state.activity||"—");
+document.querySelectorAll(".assessment-next").forEach(button => {
+  button.addEventListener("click", () => {
+    if (step < 5) {
+      step += 1;
       renderStep();
+      return;
     }
+
+    step = 6;
+    document.getElementById("resultSummary").innerHTML =
+      "<strong>Your answers</strong><br>" +
+      "Age: " + (state.age || "—") + "<br>" +
+      "Height: " + state.height + " cm<br>" +
+      "Weight: " + state.weight + " kg<br>" +
+      "Goal: " + (state.goal || "—") + "<br>" +
+      "Activity: " + (state.activity || "—");
+
+    renderStep();
   });
 });
 
-const heightRange=document.getElementById("heightRange");
-heightRange.addEventListener("input",e=>{
-  state.height=Number(e.target.value);
-  document.getElementById("heightValue").textContent=e.target.value;
-});
-const weightRange=document.getElementById("weightRange");
-weightRange.addEventListener("input",e=>{
-  state.weight=Number(e.target.value);
-  document.getElementById("weightValue").textContent=e.target.value;
+const heightRange = document.getElementById("heightRange");
+heightRange.addEventListener("input", event => {
+  state.height = Number(event.target.value);
+  document.getElementById("heightValue").textContent = event.target.value;
 });
 
-document.getElementById("restartAssessment").addEventListener("click",()=>{
-  step=1;renderStep();
+const weightRange = document.getElementById("weightRange");
+weightRange.addEventListener("input", event => {
+  state.weight = Number(event.target.value);
+  document.getElementById("weightValue").textContent = event.target.value;
 });
-["professionalButton","resultProfessional"].forEach(id=>{
-  document.getElementById(id).addEventListener("click",()=>{
-    showToast("Demo only — this would open the approved consultation booking flow.");
+
+document.getElementById("restartAssessment").addEventListener("click", () => {
+  step = 1;
+  renderStep();
+});
+
+["professionalButton", "resultProfessional"].forEach(id => {
+  document.getElementById(id).addEventListener("click", () => {
+    showToast("Prototype only — this will connect to the approved consultation flow in production.");
   });
 });
-document.querySelectorAll("[data-product]").forEach(btn=>btn.addEventListener("click",()=>{
-  showToast(btn.dataset.product+" — this would open the Shopify product page.");
-}));
 
-document.addEventListener("keydown",e=>{
-  if(e.key==="Escape"){
-    modal.classList.remove("open");
-    shell.classList.remove("open");
-    document.body.style.overflow="";
+document.querySelectorAll("[data-product]").forEach(button => {
+  button.addEventListener("click", () => {
+    showToast(button.dataset.product + " — this will open the Shopify product page.");
+  });
+});
+
+document.querySelectorAll(".product-image-link").forEach(link => {
+  link.addEventListener("click", event => {
+    event.preventDefault();
+    const card = link.closest(".product-card");
+    card.querySelector("[data-product]")?.click();
+  });
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key !== "Escape") return;
+
+  if (assessmentShell.classList.contains("open")) {
+    closeAssessment();
+  } else if (modalShell.classList.contains("open")) {
+    closeTreatment();
   }
 });

@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Sample App — a premium medical weight-management prototype." />
+  <title>Sample App — A smarter approach to weight loss</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Sample App home">Sample App</a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#options">Treatments</a>
+      <a href="#how">How it works</a>
+      <a href="#products">Products</a>
+      <a href="#faq">FAQs</a>
+    </nav>
+    <button class="button button-small button-dark" data-start-assessment>Start assessment</button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Medical weight management, made clearer</div>
+        <h1>A smarter approach<br>to weight loss.</h1>
+        <p class="hero-sub">
+          Explore treatment pathways, understand your options and take a short assessment before speaking with a qualified healthcare professional.
+        </p>
+        <div class="hero-actions">
+          <button class="button button-dark" data-start-assessment>Find out what may suit you</button>
+          <a class="button button-light" href="#professional">Speak to a healthcare professional</a>
+        </div>
+        <p class="microcopy">The assessment does not diagnose or prescribe treatment.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+        <div class="hero-card">
+          <span class="hero-card-label">Your next step</span>
+          <strong>Understand your options.</strong>
+          <p>A calm, guided journey from exploration to professional support.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="options">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Explore your options</span>
+          <h2>Weight-loss treatment pathways.</h2>
+        </div>
+        <p>Learn about the available categories before deciding whether to continue to a consultation.</p>
+      </div>
+
+      <div class="treatment-grid">
+        <article class="treatment-card">
+          <div class="treatment-art treatment-art-one"></div>
+          <div class="card-body">
+            <span class="pill">Prescription option</span>
+            <h3>Weekly treatment option</h3>
+            <p>An example treatment card for clinically approved information about a once-weekly prescription pathway.</p>
+            <button class="text-link" data-treatment="weekly">Learn more <span>↗</span></button>
+          </div>
+        </article>
+
+        <article class="treatment-card">
+          <div class="treatment-art treatment-art-two"></div>
+          <div class="card-body">
+            <span class="pill">Prescription option</span>
+            <h3>Alternative weekly option</h3>
+            <p>A second treatment pathway placeholder for approved indications, usage information and safety guidance.</p>
+            <button class="text-link" data-treatment="alternative">Learn more <span>↗</span></button>
+          </div>
+        </article>
+
+        <article class="treatment-card">
+          <div class="treatment-art treatment-art-three"></div>
+          <div class="card-body">
+            <span class="pill">Support pathway</span>
+            <h3>Clinician-led programme</h3>
+            <p>A structured programme combining professional review with nutrition, behaviour and lifestyle support.</p>
+            <button class="text-link" data-treatment="programme">Learn more <span>↗</span></button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="assessment-banner" id="assessment-entry">
+      <div>
+        <span class="eyebrow">Not sure where to start?</span>
+        <h2>Find out which pathway may be worth discussing.</h2>
+        <p>Answer a few questions about your starting point and goals. We’ll guide you to the appropriate next step — not make a medical decision for you.</p>
+      </div>
+      <button class="button button-dark button-large" data-start-assessment>Start the short assessment</button>
+    </section>
+
+    <section class="section how" id="how">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">How it works</span>
+          <h2>Simple, guided and clinically responsible.</h2>
+        </div>
+      </div>
+
+      <div class="steps">
+        <article class="step-card"><span>01</span><h3>Explore</h3><p>Review treatment pathways and learn what each option involves.</p></article>
+        <article class="step-card"><span>02</span><h3>Assess</h3><p>Complete a short, private assessment to help identify the next appropriate step.</p></article>
+        <article class="step-card"><span>03</span><h3>Speak</h3><p>Discuss your circumstances with a qualified healthcare professional.</p></article>
+        <article class="step-card"><span>04</span><h3>Proceed</h3><p>If clinically appropriate, continue with the agreed treatment or support plan.</p></article>
+      </div>
+    </section>
+
+    <section class="professional" id="professional">
+      <div class="professional-copy">
+        <span class="eyebrow light">Professional support</span>
+        <h2>Speak with someone qualified.</h2>
+        <p>Questions about treatment, eligibility, side effects or what to expect should be discussed with a healthcare professional.</p>
+        <button class="button button-cream" id="professionalButton">Speak to a qualified healthcare professional</button>
+      </div>
+      <div class="professional-note">
+        <span>Available support</span>
+        <strong>Clinical guidance before treatment.</strong>
+        <p>This prototype does not connect to a real clinician yet. In production, this button would route to the approved consultation pathway.</p>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Shop wellness</span>
+          <h2>Products that support the journey.</h2>
+        </div>
+        <p>These behave like normal Shopify products and can be fully managed by a nontechnical owner.</p>
+      </div>
+
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-image product-one"><span>01</span></div>
+          <div class="product-info"><div><h3>Nutrition support</h3><p>Daily wellness support</p></div><strong>€29</strong></div>
+          <button class="button button-full button-outline" data-product="Nutrition support">View product</button>
+        </article>
+        <article class="product-card">
+          <div class="product-image product-two"><span>02</span></div>
+          <div class="product-info"><div><h3>Meal planning kit</h3><p>Structure your week</p></div><strong>€19</strong></div>
+          <button class="button button-full button-outline" data-product="Meal planning kit">View product</button>
+        </article>
+        <article class="product-card">
+          <div class="product-image product-three"><span>03</span></div>
+          <div class="product-info"><div><h3>Smart progress scale</h3><p>Track at home</p></div><strong>€49</strong></div>
+          <button class="button button-full button-outline" data-product="Smart progress scale">View product</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Frequently asked</span>
+          <h2>Before you begin.</h2>
+        </div>
+      </div>
+
+      <div class="faq-list">
+        <details><summary>Does the assessment prescribe medication?</summary><p>No. It is a guided screening experience. Any prescription decision must be made by an appropriately qualified healthcare professional.</p></details>
+        <details><summary>Can I browse treatments without completing the assessment?</summary><p>Yes. The treatment cards can contain approved educational content so visitors can understand their options before continuing.</p></details>
+        <details><summary>Can the normal products be purchased directly?</summary><p>Yes. Non-prescription products can use a standard Shopify product and checkout flow.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#top">Sample App</a>
+    <p>Prototype only. Not medical advice. Final clinical content and treatment flows require professional and regulatory review.</p>
+  </footer>
+
+  <div class="modal-shell" id="treatmentModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-treatment></div>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="treatmentTitle">
+      <button class="modal-close" data-close-treatment aria-label="Close">×</button>
+      <span class="pill">Treatment information</span>
+      <h2 id="treatmentTitle">Treatment option</h2>
+      <p id="treatmentIntro"></p>
+      <div class="modal-grid">
+        <div><span>What it is</span><p id="treatmentWhat"></p></div>
+        <div><span>What happens next</span><p>A healthcare professional reviews suitability, contraindications and individual circumstances before any prescription decision.</p></div>
+      </div>
+      <div class="safety-box">Important: this demo uses placeholder educational copy. Production medication pages must use approved medical, safety and regulatory content.</div>
+      <button class="button button-dark button-full" data-start-assessment>Find out what may be suitable for you</button>
+    </section>
+  </div>
+
+  <div class="assessment-shell" id="assessmentShell" aria-hidden="true">
+    <div class="assessment-topbar">
+      <a class="brand" href="#top">Sample App</a>
+      <button class="modal-close" id="closeAssessment" aria-label="Close assessment">×</button>
+    </div>
+    <div class="assessment-progress"><div id="progressBar"></div></div>
+
+    <section class="assessment-step active" data-step="1">
+      <span class="eyebrow">1 of 5</span>
+      <h2>How old are you?</h2>
+      <p>This helps us understand whether a clinical discussion may be appropriate.</p>
+      <div class="choice-grid three">
+        <button class="choice" data-field="age" data-value="18-29">18–29</button>
+        <button class="choice" data-field="age" data-value="30-44">30–44</button>
+        <button class="choice" data-field="age" data-value="45-64">45–64</button>
+      </div>
+      <button class="button button-dark assessment-next" disabled>Continue</button>
+    </section>
+
+    <section class="assessment-step" data-step="2">
+      <span class="eyebrow">2 of 5</span>
+      <h2>What’s your height?</h2>
+      <p>Use the slider to select your current height.</p>
+      <div class="measurement"><span id="heightValue">175</span><small>cm</small></div>
+      <input id="heightRange" type="range" min="145" max="210" value="175" />
+      <button class="button button-dark assessment-next">Continue</button>
+    </section>
+
+    <section class="assessment-step" data-step="3">
+      <span class="eyebrow">3 of 5</span>
+      <h2>What’s your current weight?</h2>
+      <p>Use your current weight. This prototype does not save your answer.</p>
+      <div class="measurement"><span id="weightValue">85</span><small>kg</small></div>
+      <input id="weightRange" type="range" min="45" max="180" value="85" />
+      <button class="button button-dark assessment-next">Continue</button>
+    </section>
+
+    <section class="assessment-step" data-step="4">
+      <span class="eyebrow">4 of 5</span>
+      <h2>What’s your main goal?</h2>
+      <div class="choice-grid two">
+        <button class="choice" data-field="goal" data-value="lose-weight">Lose weight</button>
+        <button class="choice" data-field="goal" data-value="health-routine">Build a healthier routine</button>
+        <button class="choice" data-field="goal" data-value="maintain">Maintain previous progress</button>
+        <button class="choice" data-field="goal" data-value="explore">Explore medical support</button>
+      </div>
+      <button class="button button-dark assessment-next" disabled>Continue</button>
+    </section>
+
+    <section class="assessment-step" data-step="5">
+      <span class="eyebrow">5 of 5</span>
+      <h2>How active are you currently?</h2>
+      <div class="choice-grid two">
+        <button class="choice" data-field="activity" data-value="low">Mostly sedentary</button>
+        <button class="choice" data-field="activity" data-value="light">Lightly active</button>
+        <button class="choice" data-field="activity" data-value="moderate">Moderately active</button>
+        <button class="choice" data-field="activity" data-value="high">Very active</button>
+      </div>
+      <button class="button button-dark assessment-next" disabled>See my next step</button>
+    </section>
+
+    <section class="assessment-step assessment-result" data-step="6">
+      <span class="result-check">✓</span>
+      <span class="eyebrow">Assessment complete</span>
+      <h2>Your next step is a professional conversation.</h2>
+      <p>Based on the information you entered, the responsible next step is to discuss your goals and circumstances with a qualified healthcare professional who can assess whether medical weight-management treatment is appropriate.</p>
+      <div class="result-summary" id="resultSummary"></div>
+      <button class="button button-dark button-large" id="resultProfessional">Speak to a healthcare professional</button>
+      <button class="text-link center-link" id="restartAssessment">Start again</button>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="./app.js"></script>
+</body>
+</html>

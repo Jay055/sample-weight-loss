@@ -192,3 +192,33 @@ document.addEventListener("keydown", event => {
     closeTreatment();
   }
 });
+
+function getActiveOverlay() {
+  if (assessmentShell.classList.contains("open")) return assessmentShell;
+  if (modalShell.classList.contains("open")) return modalShell;
+  return null;
+}
+
+document.addEventListener("keydown", event => {
+  if (event.key !== "Tab") return;
+
+  const overlay = getActiveOverlay();
+  if (!overlay) return;
+
+  const focusable = [...overlay.querySelectorAll(
+    'button:not([disabled]), a[href]:not([tabindex="-1"]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+  )].filter(element => element.offsetParent !== null);
+
+  if (!focusable.length) return;
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
+});

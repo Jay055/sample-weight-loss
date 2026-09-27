@@ -58,9 +58,14 @@
       <a href="#products">Shop</a>
     </nav>
 
-    <button class="button button-dark button-small" data-start-assessment>
-      Start assessment <span aria-hidden="true">→</span>
-    </button>
+    <div class="header-actions">
+      <a class="button button-light button-small call-button" href="tel:+2347013671959" aria-label="Call us on +234 701 367 1959">
+        Call me
+      </a>
+      <button class="button button-dark button-small" data-start-assessment>
+        Start assessment <span aria-hidden="true">→</span>
+      </button>
+    </div>
   </header>
 
   <main id="main-content">
@@ -117,8 +122,7 @@
       </div>
     </section>
 
-    <section class="trust-row" aria-label="How the service is designed">
-      <article>
+    <section class="trust-row" aria-label="How the service is designed">      <article>
         <span>01</span>
         <div><strong>Understand first</strong><p>Clear information before any treatment decision.</p></div>
       </article>
@@ -237,8 +241,7 @@
         <small>Your answers stay in this browser in the prototype and are not stored.</small>
       </div>
 
-      <div class="assessment-editorial-visual" aria-hidden="true">
-        <div class="assessment-card assessment-card-a">
+      <div class="assessment-editorial-visual" aria-hidden="true">        <div class="assessment-card assessment-card-a">
           <span>Question 02</span>
           <strong>What’s your height?</strong>
           <div class="mock-slider"><i></i></div>
@@ -291,9 +294,14 @@
           <li><span>✓</span> Understand treatment expectations and next steps</li>
         </ul>
 
-        <button class="button button-dark button-large" id="professionalButton">
-          Speak to a healthcare professional <span aria-hidden="true">→</span>
-        </button>
+        <div class="professional-actions">
+          <a class="button button-light button-large" href="tel:+2347013671959" aria-label="Call us on +234 701 367 1959">
+            Call me
+          </a>
+          <button class="button button-dark button-large" id="professionalButton">
+            Speak to a healthcare professional <span aria-hidden="true">→</span>
+          </button>
+        </div>
       </div>
 
       <div class="professional-media">
@@ -357,8 +365,7 @@
         </div>
         <p>
           The product area sits lower in the journey so everyday wellness products can use a straightforward Shopify shopping experience without competing with the primary assessment flow.
-        </p>
-      </div>
+        </p>      </div>
 
       <div class="product-grid">
         <article class="product-card">
@@ -415,7 +422,8 @@
   </footer>
 
   <div class="mobile-cta">
-    <button class="button button-dark button-full" data-start-assessment>Start assessment <span aria-hidden="true">→</span></button>
+    <a class="button button-light call-button" href="tel:+2347013671959" aria-label="Call us on +234 701 367 1959">Call me</a>
+    <button class="button button-dark" data-start-assessment>Start assessment <span aria-hidden="true">→</span></button>
   </div>
 
   <div class="modal-shell" id="treatmentModal" aria-hidden="true">
@@ -517,8 +525,7 @@
     </section>
 
     <section class="assessment-step assessment-result" data-step="6">
-      <span class="result-check" aria-hidden="true">✓</span>
-      <span class="eyebrow">Assessment complete</span>
+      <span class="result-check" aria-hidden="true">✓</span>      <span class="eyebrow">Assessment complete</span>
       <h2>Your next step is a professional conversation.</h2>
       <p>Your answers can help structure a consultation, but they are not enough to determine whether a prescription treatment is appropriate. A qualified healthcare professional should review your circumstances and medical history.</p>
       <div class="result-summary" id="resultSummary"></div>

@@ -222,3 +222,40 @@ document.addEventListener("keydown", event => {
     first.focus();
   }
 });
+
+
+// Expandable strength and price panels in the treatment category grid.
+document.querySelectorAll("[data-category-toggle]").forEach(button => {
+  button.addEventListener("click", () => {
+    const key = button.dataset.categoryToggle;
+    const panel = document.querySelector('[data-category-panel="' + key + '"]');
+    if (!panel) return;
+    const wasOpen = button.getAttribute("aria-expanded") === "true";
+    document.querySelectorAll("[data-category-panel]").forEach(item => { item.hidden = true; });
+    document.querySelectorAll("[data-category-toggle]").forEach(item => {
+      item.setAttribute("aria-expanded", "false");
+      const arrow = item.querySelector(".category-arrow");
+      if (arrow) arrow.textContent = "＋";
+    });
+    if (!wasOpen) {
+      panel.hidden = false;
+      button.setAttribute("aria-expanded", "true");
+      const arrow = button.querySelector(".category-arrow");
+      if (arrow) arrow.textContent = "−";
+      panel.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "nearest" });
+    }
+  });
+});
+document.querySelectorAll("[data-category-close]").forEach(button => {
+  button.addEventListener("click", () => {
+    const panel = button.closest("[data-category-panel]");
+    if (panel) panel.hidden = true;
+    const key = panel?.dataset.categoryPanel;
+    const trigger = document.querySelector('[data-category-toggle="' + key + '"]');
+    if (trigger) {
+      trigger.setAttribute("aria-expanded", "false");
+      trigger.querySelector(".category-arrow").textContent = "＋";
+      trigger.focus();
+    }
+  });
+});

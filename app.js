@@ -85,13 +85,9 @@ function renderStep() {
 }
 
 function startAssessment(event) {
-  if (event?.currentTarget) lastFocusedElement = event.currentTarget;
-  modalShell.classList.remove("open");
-  modalShell.setAttribute("aria-hidden", "true");
-  assessmentShell.classList.add("open");
-  assessmentShell.setAttribute("aria-hidden", "false");
-  lockPage();
-  renderStep();
+  if (event) event.preventDefault();
+  const message = "Hello LumiPharm, I'd like to start a weight-management consultation. Please let me know the next steps.";
+  window.open("https://wa.me/2347013671959?text=" + encodeURIComponent(message), "_blank", "noopener,noreferrer");
 }
 
 function closeAssessment() {
@@ -165,7 +161,8 @@ document.getElementById("restartAssessment").addEventListener("click", () => {
 
 ["professionalButton", "resultProfessional"].forEach(id => {
   document.getElementById(id).addEventListener("click", () => {
-    showToast("Prototype only — this will connect to the approved consultation flow in production.");
+    const message = "Hello LumiPharm, I'd like to speak with a healthcare professional about weight-management options. Please let me know the next steps.";
+    window.open("https://wa.me/2347013671959?text=" + encodeURIComponent(message), "_blank", "noopener,noreferrer");
   });
 });
 

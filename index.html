@@ -161,7 +161,7 @@
   <p class="footer-disclaimer">Prescription treatments are subject to eligibility, clinical assessment and applicable requirements. Final medical and regulatory information should be reviewed and approved before launch.</p>
 </footer>
 
-<div class="mobile-cta"><a class="button button-white" href="https://wa.me/2347013671959?text=Hello%20LumiPharm%2C%20I%27d%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener noreferrer">Call me</a><button class="button button-blue" data-start-assessment>Start consultation</button></div>
+<div class="mobile-cta"><button class="button button-white" type="button" data-contact-options>Call me</button><button class="button button-blue" data-start-assessment>Start consultation</button></div>
 
 <div class="modal-shell" id="treatmentModal" aria-hidden="true">
  <div class="modal-backdrop" data-close-treatment></div><aside class="modal" role="dialog" aria-modal="true" aria-labelledby="treatmentTitle" tabindex="-1"><button class="modal-close" data-close-treatment aria-label="Close">×</button><span class="eyebrow">Treatment information</span><h2 id="treatmentTitle"></h2><p id="treatmentIntro"></p><div class="modal-grid"><div><span>What to know</span><p id="treatmentWhat"></p></div><div><span>Next step</span><p>Complete the consultation so an appropriate professional can review your circumstances.</p></div></div><div class="safety-box">Treatment suitability, safety information and prescribing decisions must be confirmed through the appropriate clinical review.</div><button class="button button-blue button-large" data-start-assessment>Start Your Consultation →</button></aside>
@@ -176,6 +176,27 @@
  <section class="assessment-step" data-step="5"><span class="eyebrow">Consultation · 05</span><h2>How active are you currently?</h2><div class="choice-grid three"><button class="choice" data-field="activity" data-value="Low">Low</button><button class="choice" data-field="activity" data-value="Moderate">Moderate</button><button class="choice" data-field="activity" data-value="High">High</button></div><button class="button button-blue assessment-next" disabled>See my next step →</button></section>
  <section class="assessment-step" data-step="6"><div class="result-check">✓</div><span class="eyebrow">Consultation complete</span><h2>Your next step is a professional review.</h2><p>The information you entered can help structure the conversation, but it does not diagnose or prescribe.</p><div class="result-summary" id="resultSummary"></div><button class="button button-blue button-large" id="resultProfessional">Speak to a healthcare professional →</button><button class="editorial-link center-link" id="restartAssessment">Start again</button></section>
 </div>
+
+<div class="contact-shell" id="contactShell" aria-hidden="true">
+  <div class="contact-backdrop" data-close-contact></div>
+  <section class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contactTitle" tabindex="-1">
+    <button class="modal-close" type="button" data-close-contact aria-label="Close contact options">×</button>
+    <span class="eyebrow">We're here to help</span>
+    <h2 id="contactTitle">How would you like us to contact you?</h2>
+    <p>Choose WhatsApp for a direct message, or leave your details to request a callback.</p>
+    <a class="button button-blue button-large contact-whatsapp" href="https://wa.me/2347013671959?text=Hello%20LumiPharm%2C%20I%27d%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener noreferrer">Message us on WhatsApp →</a>
+    <div class="contact-divider"><span>OR REQUEST A CALLBACK</span></div>
+    <form id="callbackForm" class="callback-form">
+      <label for="callbackName">Your name</label>
+      <input id="callbackName" name="name" autocomplete="name" required maxlength="100" placeholder="Enter your name">
+      <label for="callbackPhone">Phone number</label>
+      <input id="callbackPhone" name="phone" type="tel" autocomplete="tel" required maxlength="30" placeholder="+234…">
+      <p class="callback-note">Submitting opens WhatsApp with your callback request so you can send it to LumiPharm. Your request is not sent until you press Send in WhatsApp.</p>
+      <button class="button button-blue button-large" type="submit">Request a callback →</button>
+    </form>
+  </section>
+</div>
+
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="/app.js" defer></script>
 

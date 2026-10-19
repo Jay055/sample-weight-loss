@@ -50,3 +50,30 @@ footer{padding:55px 7vw 90px;background:#211c18;color:#d9d2ca;display:grid;grid-
 .products-disclaimer{font-size:12px;line-height:1.65;color:var(--muted);max-width:900px;margin:24px 0 0}
 @media(max-width:1000px){.products-grid{grid-template-columns:1fr}.products-heading{grid-template-columns:1fr;gap:16px}}
 @media(max-width:620px){.products-section{padding:75px 20px}.medicine-card{grid-template-columns:1fr}.medicine-art{min-height:220px}.medicine-details{padding:25px}.products-heading h2{font-size:48px}}
+
+
+/* BLUE AESTHETICS category grid inspired by the supplied pharmacy reference */
+.category-section{padding:88px 6vw;background:#f8fafc;color:#172d3a}
+.category-heading{display:grid;grid-template-columns:1fr .65fr;gap:42px;align-items:end;max-width:1280px;margin:0 auto 34px}
+.category-heading h2{font-size:clamp(40px,5vw,66px);line-height:1.04;letter-spacing:-.045em;margin:16px 0 0}
+.category-heading h2 em{font-family:"Playfair Display",serif;font-weight:400;color:var(--blue)}
+.category-heading>p{color:var(--muted);line-height:1.7;max-width:480px;margin-bottom:4px}
+.category-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;max-width:1280px;margin:0 auto}
+.category-card{position:relative;display:flex;align-items:center;gap:18px;min-height:190px;padding:24px;border:1px solid #dce7ee;border-radius:18px;color:#17364a;text-decoration:none;overflow:hidden;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.category-card-blue{background:#e4f0f6}.category-card-ice{background:#eef5f8}.category-card-white{background:#fff}
+.category-card:focus-visible{outline:3px solid #286c91;outline-offset:4px}
+.category-art{display:flex;flex:0 0 78px;width:78px;height:92px;align-items:center;justify-content:center;flex-direction:column;gap:3px;border:1px solid #d0e0e9;border-radius:14px;background:linear-gradient(145deg,#fff,#edf4f7);box-shadow:0 8px 18px #234d6410}
+.category-monogram{font-family:"Playfair Display",serif;font-size:40px;line-height:1;color:#286c91}
+.category-art-label{font-size:7px;letter-spacing:.1em;color:#58788b;font-weight:700}
+.category-card-copy{display:flex;flex:1;min-width:0;flex-direction:column;gap:7px}
+.category-card-copy strong{font-size:clamp(18px,1.8vw,24px);line-height:1.2;font-weight:600}
+.category-card-copy small{font-size:12px;line-height:1.45;color:#5e7482}
+.category-arrow{align-self:flex-start;margin-left:auto;color:#286c91;font-size:20px}
+.other-options-note{padding:64px 6vw;background:#eef5f8;text-align:center}
+.other-options-note .eyebrow{display:block}
+.other-options-note h2{font-size:clamp(30px,4vw,48px);letter-spacing:-.035em;margin:16px auto;max-width:700px}
+.other-options-note p{max-width:760px;margin:0 auto 24px;color:var(--muted);line-height:1.7}
+@media(hover:hover) and (pointer:fine){.category-card:hover{transform:translateY(-4px);border-color:#8bb5cb;box-shadow:0 14px 30px #183f5512}.category-card:hover .category-arrow{transform:translate(3px,-3px)}}
+@media(max-width:900px){.category-section{padding:70px 24px}.category-heading{grid-template-columns:1fr;gap:14px}.category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.category-card{min-height:160px;padding:18px;gap:13px}.category-art{flex-basis:64px;width:64px;height:78px}.category-monogram{font-size:34px}}
+@media(max-width:520px){.category-section{padding:60px 18px}.category-grid{gap:12px}.category-card{min-height:160px;flex-direction:column;align-items:flex-start;justify-content:center;padding:16px;gap:13px}.category-art{width:56px;height:64px;flex-basis:64px}.category-monogram{font-size:29px}.category-arrow{position:absolute;right:14px;top:13px}.category-card-copy strong{font-size:17px}.category-card-copy small{font-size:11px}.other-options-note{padding:55px 20px}}
+@media(prefers-reduced-motion:reduce){.category-card,.category-arrow{transition:none}}

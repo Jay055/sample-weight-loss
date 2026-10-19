@@ -1,34 +1,34 @@
 {% comment %}
-  Lumi Pharm — Product category grid
+  BLUE AESTHETICS — Product category grid
   Add this file to your Shopify theme's /sections directory.
   Each card links to its selected collection first, then its selected product.
   Leave both unselected to show a non-purchasable placeholder card.
 {% endcomment %}
 
 <section
-  id="lumi-category-grid-{{ section.id }}"
-  class="lumi-category-grid"
+  id="blue-category-grid-{{ section.id }}"
+  class="blue-category-grid"
   style="
-    --lumi-cream: {{ section.settings.cream }};
-    --lumi-beige: {{ section.settings.beige }};
-    --lumi-sand: {{ section.settings.sand }};
-    --lumi-caramel: {{ section.settings.caramel }};
-    --lumi-desktop-cols: {{ section.settings.desktop_columns }};
-    --lumi-mobile-cols: {{ section.settings.mobile_columns }};
+    --blue-cream: {{ section.settings.cream }};
+    --blue-beige: {{ section.settings.beige }};
+    --blue-sand: {{ section.settings.sand }};
+    --blue-caramel: {{ section.settings.caramel }};
+    --blue-desktop-cols: {{ section.settings.desktop_columns }};
+    --blue-mobile-cols: {{ section.settings.mobile_columns }};
   "
 >
-  <div class="lumi-category-grid__inner page-width">
+  <div class="blue-category-grid__inner page-width">
     {% if section.settings.eyebrow != blank %}
-      <p class="lumi-category-grid__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      <p class="blue-category-grid__eyebrow">{{ section.settings.eyebrow | escape }}</p>
     {% endif %}
     {% if section.settings.heading != blank %}
-      <h2 class="lumi-category-grid__heading">{{ section.settings.heading | escape }}</h2>
+      <h2 class="blue-category-grid__heading">{{ section.settings.heading | escape }}</h2>
     {% endif %}
     {% if section.settings.description != blank %}
-      <div class="lumi-category-grid__description">{{ section.settings.description | escape | newline_to_br }}</div>
+      <div class="blue-category-grid__description">{{ section.settings.description | escape | newline_to_br }}</div>
     {% endif %}
 
-    <div class="lumi-category-grid__items">
+    <div class="blue-category-grid__items">
       {% for block in section.blocks %}
         {% liquid
           assign destination = blank
@@ -52,26 +52,26 @@
             assign card_image = block.settings.product.featured_image
           endif
         %}
-        <div class="lumi-category-grid__item" {{ block.shopify_attributes }}>
+        <div class="blue-category-grid__item" {{ block.shopify_attributes }}>
           {% if destination != blank %}
-            <a class="lumi-category-card" href="{{ destination }}" aria-label="{{ category_title | escape }}">
+            <a class="blue-category-card" href="{{ destination }}" aria-label="{{ category_title | escape }}">
           {% else %}
-            <div class="lumi-category-card lumi-category-card--placeholder" aria-label="{{ category_title | default: 'Category coming soon' | escape }}">
+            <div class="blue-category-card blue-category-card--placeholder" aria-label="{{ category_title | default: 'Information coming soon' | escape }}">
           {% endif %}
-              <span class="lumi-category-card__art" aria-hidden="true">
+              <span class="blue-category-card__art" aria-hidden="true">
                 {% if card_image != blank %}
-                  {{ card_image | image_url: width: 720 | image_tag: class: 'lumi-category-card__image', loading: 'lazy', widths: '240, 360, 540, 720', sizes: '(min-width: 990px) 28vw, (min-width: 600px) 44vw, 90vw', alt: '' }}
+                  {{ card_image | image_url: width: 720 | image_tag: class: 'blue-category-card__image', loading: 'lazy', widths: '240, 360, 540, 720', sizes: '(min-width: 990px) 28vw, (min-width: 600px) 44vw, 90vw', alt: '' }}
                 {% else %}
-                  <span class="lumi-category-card__monogram">{{ block.settings.monogram | default: 'L' | escape }}</span>
+                  <span class="blue-category-card__monogram">{{ block.settings.monogram | default: 'L' | escape }}</span>
                 {% endif %}
               </span>
-              <span class="lumi-category-card__copy">
-                <span class="lumi-category-card__title">{{ category_title | default: 'Category coming soon' | escape }}</span>
+              <span class="blue-category-card__copy">
+                <span class="blue-category-card__title">{{ category_title | default: 'Information coming soon' | escape }}</span>
                 {% if block.settings.subtitle != blank %}
-                  <span class="lumi-category-card__subtitle">{{ block.settings.subtitle | escape }}</span>
+                  <span class="blue-category-card__subtitle">{{ block.settings.subtitle | escape }}</span>
                 {% endif %}
               </span>
-              <span class="lumi-category-card__arrow" aria-hidden="true">↗</span>
+              <span class="blue-category-card__arrow" aria-hidden="true">↗</span>
           {% if destination != blank %}
             </a>
           {% else %}
@@ -82,107 +82,107 @@
     </div>
 
     {% if section.settings.footer_note != blank %}
-      <p class="lumi-category-grid__note">{{ section.settings.footer_note | escape }}</p>
+      <p class="blue-category-grid__note">{{ section.settings.footer_note | escape }}</p>
     {% endif %}
   </div>
 </section>
 
 <style>
-  #lumi-category-grid-{{ section.id }} {
-    background: var(--lumi-cream);
-    color: #302820;
+  #blue-category-grid-{{ section.id }} {
+    background: var(--blue-cream);
+    color: #172D3A;
     padding: clamp(36px, 6vw, 84px) 0;
   }
-  #lumi-category-grid-{{ section.id }} .lumi-category-grid__inner { max-width: 1280px; margin: 0 auto; }
-  #lumi-category-grid-{{ section.id }} .lumi-category-grid__eyebrow {
-    margin: 0 0 12px; color: var(--lumi-caramel); font-size: .75rem; font-weight: 700;
+  #blue-category-grid-{{ section.id }} .blue-category-grid__inner { max-width: 1280px; margin: 0 auto; }
+  #blue-category-grid-{{ section.id }} .blue-category-grid__eyebrow {
+    margin: 0 0 12px; color: var(--blue-caramel); font-size: .75rem; font-weight: 700;
     letter-spacing: .16em; text-transform: uppercase;
   }
-  #lumi-category-grid-{{ section.id }} .lumi-category-grid__heading {
-    max-width: 760px; margin: 0; color: #302820; font-size: clamp(2rem, 4vw, 3.4rem);
+  #blue-category-grid-{{ section.id }} .blue-category-grid__heading {
+    max-width: 760px; margin: 0; color: #172D3A; font-size: clamp(2rem, 4vw, 3.4rem);
     line-height: 1.08; letter-spacing: -.045em;
   }
-  #lumi-category-grid-{{ section.id }} .lumi-category-grid__description {
-    max-width: 620px; margin-top: 16px; color: #70665b; line-height: 1.65;
+  #blue-category-grid-{{ section.id }} .blue-category-grid__description {
+    max-width: 620px; margin-top: 16px; color: #526874; line-height: 1.65;
   }
-  #lumi-category-grid-{{ section.id }} .lumi-category-grid__items {
-    display: grid; grid-template-columns: repeat(var(--lumi-desktop-cols), minmax(0, 1fr));
+  #blue-category-grid-{{ section.id }} .blue-category-grid__items {
+    display: grid; grid-template-columns: repeat(var(--blue-desktop-cols), minmax(0, 1fr));
     gap: clamp(12px, 2vw, 24px); margin-top: clamp(26px, 4vw, 44px);
   }
-  #lumi-category-grid-{{ section.id }} .lumi-category-grid__item { min-width: 0; }
-  #lumi-category-grid-{{ section.id }} .lumi-category-card {
+  #blue-category-grid-{{ section.id }} .blue-category-grid__item { min-width: 0; }
+  #blue-category-grid-{{ section.id }} .blue-category-card {
     position: relative; display: flex; min-height: 220px; height: 100%; align-items: center;
     gap: clamp(12px, 1.8vw, 24px); overflow: hidden; padding: clamp(18px, 2.5vw, 32px);
-    border: 1px solid rgba(92, 69, 47, .10); border-radius: 18px; background: var(--lumi-beige);
-    color: #302820; text-decoration: none; isolation: isolate;
+    border: 1px solid rgba(35, 92, 124, .12); border-radius: 18px; background: var(--blue-beige);
+    color: #172D3A; text-decoration: none; isolation: isolate;
     transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
   }
-  #lumi-category-grid-{{ section.id }} .lumi-category-grid__item:nth-child(3n + 2) .lumi-category-card { background: var(--lumi-sand); }
-  #lumi-category-grid-{{ section.id }} .lumi-category-grid__item:nth-child(3n) .lumi-category-card { background: #fffdf8; }
-  #lumi-category-grid-{{ section.id }} .lumi-category-card:focus-visible {
-    outline: 3px solid var(--lumi-caramel); outline-offset: 4px;
+  #blue-category-grid-{{ section.id }} .blue-category-grid__item:nth-child(3n + 2) .blue-category-card { background: var(--blue-sand); }
+  #blue-category-grid-{{ section.id }} .blue-category-grid__item:nth-child(3n) .blue-category-card { background: #FDFDFC; }
+  #blue-category-grid-{{ section.id }} .blue-category-card:focus-visible {
+    outline: 3px solid var(--blue-caramel); outline-offset: 4px;
   }
-  #lumi-category-grid-{{ section.id }} .lumi-category-card--placeholder { cursor: default; }
-  #lumi-category-grid-{{ section.id }} .lumi-category-card__art {
+  #blue-category-grid-{{ section.id }} .blue-category-card--placeholder { cursor: default; }
+  #blue-category-grid-{{ section.id }} .blue-category-card__art {
     display: grid; flex: 0 0 clamp(58px, 7vw, 96px); width: clamp(58px, 7vw, 96px);
     height: clamp(58px, 7vw, 96px); place-items: center; overflow: hidden;
     border-radius: 50%; background: rgba(255,255,255,.62);
   }
-  #lumi-category-grid-{{ section.id }} .lumi-category-card__image { display: block; width: 100%; height: 100%; object-fit: cover; }
-  #lumi-category-grid-{{ section.id }} .lumi-category-card__monogram {
-    color: var(--lumi-caramel); font-family: Georgia, serif; font-size: clamp(1.8rem, 3vw, 2.7rem);
+  #blue-category-grid-{{ section.id }} .blue-category-card__image { display: block; width: 100%; height: 100%; object-fit: cover; }
+  #blue-category-grid-{{ section.id }} .blue-category-card__monogram {
+    color: var(--blue-caramel); font-family: Georgia, serif; font-size: clamp(1.8rem, 3vw, 2.7rem);
   }
-  #lumi-category-grid-{{ section.id }} .lumi-category-card__copy { display: flex; flex: 1; min-width: 0; flex-direction: column; gap: 7px; }
-  #lumi-category-grid-{{ section.id }} .lumi-category-card__title {
+  #blue-category-grid-{{ section.id }} .blue-category-card__copy { display: flex; flex: 1; min-width: 0; flex-direction: column; gap: 7px; }
+  #blue-category-grid-{{ section.id }} .blue-category-card__title {
     font-size: clamp(1.05rem, 1.6vw, 1.45rem); font-weight: 600; line-height: 1.25; overflow-wrap: anywhere;
   }
-  #lumi-category-grid-{{ section.id }} .lumi-category-card__subtitle { color: #766b60; font-size: .88rem; line-height: 1.4; }
-  #lumi-category-grid-{{ section.id }} .lumi-category-card__arrow {
-    align-self: flex-start; color: var(--lumi-caramel); font-size: 1.15rem; transition: transform .22s ease;
+  #blue-category-grid-{{ section.id }} .blue-category-card__subtitle { color: #526874; font-size: .88rem; line-height: 1.4; }
+  #blue-category-grid-{{ section.id }} .blue-category-card__arrow {
+    align-self: flex-start; color: var(--blue-caramel); font-size: 1.15rem; transition: transform .22s ease;
   }
-  #lumi-category-grid-{{ section.id }} .lumi-category-grid__note {
-    margin: 22px 0 0; color: #786d61; font-size: .85rem; line-height: 1.55;
+  #blue-category-grid-{{ section.id }} .blue-category-grid__note {
+    margin: 22px 0 0; color: #526874; font-size: .85rem; line-height: 1.55;
   }
   @media (hover: hover) and (pointer: fine) {
-    #lumi-category-grid-{{ section.id }} a.lumi-category-card:hover {
-      transform: translateY(-4px); border-color: rgba(150, 103, 62, .35);
-      box-shadow: 0 14px 34px rgba(64, 45, 28, .09);
+    #blue-category-grid-{{ section.id }} a.blue-category-card:hover {
+      transform: translateY(-4px); border-color: rgba(40, 108, 145, .38);
+      box-shadow: 0 14px 34px rgba(25, 69, 92, .10);
     }
-    #lumi-category-grid-{{ section.id }} a.lumi-category-card:hover .lumi-category-card__arrow { transform: translate(3px, -3px); }
+    #blue-category-grid-{{ section.id }} a.blue-category-card:hover .blue-category-card__arrow { transform: translate(3px, -3px); }
   }
   @media (max-width: 989px) {
-    #lumi-category-grid-{{ section.id }} .lumi-category-grid__items { grid-template-columns: repeat(var(--lumi-mobile-cols), minmax(0, 1fr)); }
-    #lumi-category-grid-{{ section.id }} .lumi-category-card { min-height: 150px; padding: 18px; }
-    #lumi-category-grid-{{ section.id }} .lumi-category-card__art { flex-basis: 58px; width: 58px; height: 58px; }
+    #blue-category-grid-{{ section.id }} .blue-category-grid__items { grid-template-columns: repeat(var(--blue-mobile-cols), minmax(0, 1fr)); }
+    #blue-category-grid-{{ section.id }} .blue-category-card { min-height: 150px; padding: 18px; }
+    #blue-category-grid-{{ section.id }} .blue-category-card__art { flex-basis: 58px; width: 58px; height: 58px; }
   }
   @media (max-width: 420px) {
-    #lumi-category-grid-{{ section.id }} .lumi-category-card { min-height: 136px; flex-direction: column; align-items: flex-start; gap: 12px; padding: 16px; }
-    #lumi-category-grid-{{ section.id }} .lumi-category-card__arrow { position: absolute; top: 14px; right: 14px; }
-    #lumi-category-grid-{{ section.id }} .lumi-category-card__title { font-size: 1rem; }
-    #lumi-category-grid-{{ section.id }} .lumi-category-card__subtitle { font-size: .78rem; }
+    #blue-category-grid-{{ section.id }} .blue-category-card { min-height: 136px; flex-direction: column; align-items: flex-start; gap: 12px; padding: 16px; }
+    #blue-category-grid-{{ section.id }} .blue-category-card__arrow { position: absolute; top: 14px; right: 14px; }
+    #blue-category-grid-{{ section.id }} .blue-category-card__title { font-size: 1rem; }
+    #blue-category-grid-{{ section.id }} .blue-category-card__subtitle { font-size: .78rem; }
   }
   @media (prefers-reduced-motion: reduce) {
-    #lumi-category-grid-{{ section.id }} .lumi-category-card,
-    #lumi-category-grid-{{ section.id }} .lumi-category-card__arrow { transition: none; }
+    #blue-category-grid-{{ section.id }} .blue-category-card,
+    #blue-category-grid-{{ section.id }} .blue-category-card__arrow { transition: none; }
   }
 </style>
 
 {% schema %}
 {
-  "name": "Lumi category grid",
+  "name": "Blue Aesthetics category grid",
   "tag": "section",
-  "class": "section-lumi-category-grid",
+  "class": "section-blue-category-grid",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Explore our range" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Find what you need" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Explore treatments" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Explore weight-management treatments" },
     { "type": "textarea", "id": "description", "label": "Description", "default": "Browse our product categories. Product availability and any prescription requirements are confirmed on the relevant product page." },
-    { "type": "textarea", "id": "footer_note", "label": "Footer note", "default": "Prescription medicines are listed only after product, regulatory and dispensing checks have been completed." },
+    { "type": "textarea", "id": "footer_note", "label": "Footer note", "default": "Prescription treatments are displayed only after product, regulatory, prescribing and dispensing checks have been completed." },
     { "type": "range", "id": "desktop_columns", "label": "Desktop columns", "min": 2, "max": 4, "step": 1, "default": 3 },
     { "type": "select", "id": "mobile_columns", "label": "Mobile columns", "options": [{ "value": "1", "label": "1 column" }, { "value": "2", "label": "2 columns" }], "default": "2" },
-    { "type": "color", "id": "cream", "label": "Cream background", "default": "#FBF8F2" },
-    { "type": "color", "id": "beige", "label": "Warm beige card", "default": "#F1E7D8" },
-    { "type": "color", "id": "sand", "label": "Sandstorm card", "default": "#E8D8C4" },
-    { "type": "color", "id": "caramel", "label": "Caramel accent", "default": "#986B45" }
+    { "type": "color", "id": "cream", "label": "Cream background", "default": "#F8F7F3" },
+    { "type": "color", "id": "beige", "label": "Warm beige card", "default": "#E6F0F5" },
+    { "type": "color", "id": "sand", "label": "Sandstorm card", "default": "#D1E5EF" },
+    { "type": "color", "id": "caramel", "label": "Caramel accent", "default": "#286C91" }
   ],
   "blocks": [
     {
@@ -200,7 +200,7 @@
   ],
   "presets": [
     {
-      "name": "Lumi category grid",
+      "name": "Blue Aesthetics category grid",
       "blocks": [
         { "type": "category", "settings": { "title": "Mounjaro", "subtitle": "Explore the collection", "monogram": "M" } },
         { "type": "category", "settings": { "title": "Wegovy", "subtitle": "Explore the collection", "monogram": "W" } },

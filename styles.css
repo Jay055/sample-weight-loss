@@ -254,3 +254,19 @@ footer{background:#142A43;color:#E0E7EF}
 .choice.selected{border-color:#5598BE;background:#EAF5FB;box-shadow:inset 0 0 0 1px #5598BE}
 .result-check{background:#EAF5FB;color:#397DA5}
 :focus-visible{outline-color:rgba(85,152,190,.42)}
+
+
+/* Sharpen the sky-blue brand tone: clearer, more confident, less pastel. */
+:root{--blue:#3999CF;--blue2:#247DB3}
+.brand-mark,.announcement,.button-blue,.final-cta{background:#3999CF}
+.brand-mark{color:#fff}
+.button-blue{background:#3999CF;color:#fff;box-shadow:0 10px 26px rgba(57,153,207,.22)}
+.button-blue:hover{background:#247DB3;color:#fff}
+.icon-button,.nav a:hover,.editorial-link,.text-link,.category-monogram,.category-arrow,.category-panel-close{color:#247DB3}
+.category-toggle[aria-expanded="true"]{border-color:#3999CF;box-shadow:0 0 0 2px rgba(57,153,207,.15)}
+.category-price{color:#247DB3}
+.category-art-label{color:#3C789B}
+.assessment-progress>div{background:#3999CF}
+.choice.selected{border-color:#3999CF;background:#E7F4FB;box-shadow:inset 0 0 0 1px #3999CF}
+.result-check{background:#E7F4FB;color:#247DB3}
+:focus-visible{outline-color:rgba(36,125,179,.45)}

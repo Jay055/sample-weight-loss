@@ -70,12 +70,12 @@
     <p>Explore our treatment categories. Prescription options and availability are confirmed following the appropriate clinical review.</p>
   </div>
   <div class="category-grid">
-    <a class="category-card category-card-blue" href="#treatment-mounjaro" aria-label="Explore Mounjaro information">
+    <button class="category-card category-card-blue category-toggle" type="button" data-category-toggle="mounjaro" aria-expanded="false" aria-controls="category-panel-mounjaro" aria-label="Show Mounjaro strengths and prices">
       <span class="category-art" aria-hidden="true"><span class="category-monogram">M</span><span class="category-art-label">TREATMENT</span></span><span class="category-card-copy"><strong>Mounjaro</strong><small>Explore treatment information</small></span><span class="category-arrow" aria-hidden="true">↗</span>
-    </a>
-    <a class="category-card category-card-ice" href="#products" aria-label="Explore Wegovy information and pricing">
-      <span class="category-art" aria-hidden="true"><span class="category-monogram">W</span><span class="category-art-label">TREATMENT</span></span><span class="category-card-copy"><strong>Wegovy</strong><small>View listed strengths and pricing</small></span><span class="category-arrow" aria-hidden="true">↗</span>
-    </a>
+    </button>
+    <button class="category-card category-card-ice category-toggle" type="button" data-category-toggle="wegovy" aria-expanded="false" aria-controls="category-panel-wegovy" aria-label="Show Wegovy strengths and prices">
+      <span class="category-art" aria-hidden="true"><span class="category-monogram">W</span><span class="category-art-label">TREATMENT</span></span><span class="category-card-copy"><strong>Wegovy</strong><small>Tap to view strengths and prices</small></span><span class="category-arrow" aria-hidden="true">＋</span>
+    </button>
     <a class="category-card category-card-white" href="#other-treatment-options" aria-label="Explore Ozempic information">
       <span class="category-art" aria-hidden="true"><span class="category-monogram">O</span><span class="category-art-label">INFORMATION</span></span><span class="category-card-copy"><strong>Ozempic</strong><small>Product information pending review</small></span><span class="category-arrow" aria-hidden="true">↗</span>
     </a>
@@ -88,6 +88,31 @@
     <a class="category-card category-card-blue" href="#other-treatment-options" aria-label="Explore other product information">
       <span class="category-art" aria-hidden="true"><span class="category-monogram">+</span><span class="category-art-label">MORE OPTIONS</span></span><span class="category-card-copy"><strong>Other Products</strong><small>Explore other available pathways</small></span><span class="category-arrow" aria-hidden="true">↗</span>
     </a>
+  </div>
+  <div class="category-price-panels">
+    <section class="category-price-panel" id="category-panel-mounjaro" data-category-panel="mounjaro" hidden aria-labelledby="mounjaro-prices-heading">
+      <div class="category-price-panel-heading"><div><span class="eyebrow">Treatment pricing</span><h3 id="mounjaro-prices-heading">Mounjaro strengths &amp; prices</h3></div><button type="button" class="category-panel-close" data-category-close aria-label="Close Mounjaro prices">×</button></div>
+      <div class="category-price-list">
+        <article class="category-price-item"><div><strong>2.5 mg</strong><small>Mounjaro</small></div><strong class="category-price">₦630,000</strong></article>
+        <article class="category-price-item"><div><strong>5 mg</strong><small>Mounjaro</small></div><strong class="category-price">₦690,000</strong></article>
+        <article class="category-price-item"><div><strong>7.5 mg</strong><small>Mounjaro</small></div><strong class="category-price">₦815,000</strong></article>
+        <article class="category-price-item"><div><strong>10 mg</strong><small>Mounjaro</small></div><strong class="category-price">₦850,000</strong></article>
+        <article class="category-price-item"><div><strong>12 mg — confirm strength</strong><small>Strength needs confirmation before publication</small></div><strong class="category-price">₦910,000</strong></article>
+        <article class="category-price-item"><div><strong>15 mg</strong><small>Mounjaro</small></div><strong class="category-price">₦980,000</strong></article>
+      </div>
+      <p class="category-price-note">Prices shown are the values supplied for the prototype. Confirm the intended strength, pack size and supply duration. Prescription treatment remains subject to clinical assessment and approval.</p>
+    </section>
+    <section class="category-price-panel" id="category-panel-wegovy" data-category-panel="wegovy" hidden aria-labelledby="wegovy-prices-heading">
+      <div class="category-price-panel-heading"><div><span class="eyebrow">Treatment pricing</span><h3 id="wegovy-prices-heading">Wegovy strengths &amp; prices</h3></div><button type="button" class="category-panel-close" data-category-close aria-label="Close Wegovy prices">×</button></div>
+      <div class="category-price-list">
+        <article class="category-price-item"><div><strong>0.25 mg</strong><small>Wegovy</small></div><strong class="category-price">₦570,000</strong></article>
+        <article class="category-price-item"><div><strong>0.5 mg</strong><small>Wegovy</small></div><strong class="category-price">₦570,000</strong></article>
+        <article class="category-price-item"><div><strong>1 mg</strong><small>Wegovy</small></div><strong class="category-price">₦575,000</strong></article>
+        <article class="category-price-item"><div><strong>1.7 mg</strong><small>Wegovy</small></div><strong class="category-price">₦730,000</strong></article>
+        <article class="category-price-item"><div><strong>2.4 mg</strong><small>Wegovy</small></div><strong class="category-price">₦840,000</strong></article>
+      </div>
+      <p class="category-price-note">Prices shown are the values supplied for the prototype. Confirm pack size and supply duration. Prescription treatment remains subject to clinical assessment and approval.</p>
+    </section>
   </div>
 </section>
 

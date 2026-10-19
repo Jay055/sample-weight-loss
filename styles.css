@@ -270,3 +270,73 @@ footer{background:#142A43;color:#E0E7EF}
 .choice.selected{border-color:#3999CF;background:#E7F4FB;box-shadow:inset 0 0 0 1px #3999CF}
 .result-check{background:#E7F4FB;color:#247DB3}
 :focus-visible{outline-color:rgba(36,125,179,.45)}
+
+
+/* LumiFam brand system: warm ivory, champagne beige and signature caramel brown. */
+:root{
+  --ivory:#F7E9D0;
+  --paper:#FFF9EF;
+  --blue:#987146;
+  --blue2:#795735;
+  --ink:#34291F;
+  --muted:#76695B;
+  --caramel:#987146;
+  --sand:#E8D3B5;
+  --line:#E5D4BB;
+  --shadow:0 22px 65px rgba(86,61,35,.10);
+}
+body{background:var(--ivory);color:var(--ink)}
+.announcement{background:#987146;color:#FFF9EF}
+.site-header{background:rgba(247,233,208,.96);border-bottom-color:rgba(152,113,70,.18)}
+.brand{color:#765634;font-family:"Playfair Display",Georgia,serif;font-size:17px;letter-spacing:.025em}
+.brand b{font-weight:600}
+.brand-mark{background:#987146;color:#FFF9EF;font-family:"Playfair Display",Georgia,serif;font-size:13px;letter-spacing:-.08em}
+.nav{color:#554637}
+.nav a:hover,.editorial-link,.text-link,.icon-button{color:#795735}
+.button-blue{background:#987146;color:#fffaf2;box-shadow:0 10px 26px rgba(125,87,49,.18)}
+.button-blue:hover{background:#795735;color:#fffaf2}
+.eyebrow{color:#987146}
+h1 em,h2 em{color:#987146}
+.hero-card{background:rgba(255,249,239,.97);border-color:rgba(152,113,70,.16)}
+.trust-section{border-color:#E5D4BB}
+.trust-section article+article{border-left-color:#E5D4BB}
+.category-section{background:#F2E2C8;color:#34291F}
+.category-heading h2 em{color:#987146}
+.category-card-blue{background:#F0DFC2}
+.category-card-ice{background:#FAF0E0}
+.category-card-white{background:#FFF9EF}
+.category-card{border-color:#E2CFB2;color:#493827}
+.category-art{border-color:#E5D2B6;background:linear-gradient(145deg,#FFF9EF,#F0DFC5)}
+.category-monogram,.category-arrow{color:#987146}
+.category-art-label{color:#987146}
+.category-toggle[aria-expanded="true"]{border-color:#987146;box-shadow:0 0 0 2px rgba(152,113,70,.14)}
+.category-price-panel{border-color:#E5D4BB;background:#FFF9EF}
+.category-price-item{border-color:#E8D9C2;background:#FBF2E4}
+.category-price-item>div>strong,.category-price-panel-heading h3{color:#493827}
+.category-price{color:#795735}
+.category-panel-close{border-color:#E5D4BB;background:#F7E9D0;color:#795735}
+.how-steps-section{background:#F4E7D2;color:#34291F}
+.how-step-card{background:#FFF9EF;border-color:rgba(152,113,70,.15);box-shadow:0 12px 32px rgba(86,61,35,.07)}
+.how-steps-heading h2,.how-step-copy h3{color:#987146}
+.how-step-number{background:#EAD6B8;color:#795735}
+.how-step-copy p,.how-steps-heading>p{color:#655646}
+.editorial-feature{background:#F0DFC5;border-color:rgba(152,113,70,.15)}
+.editorial-copy h2{color:#34291F}
+.editorial-copy h2 em{color:#987146}
+.editorial-copy p{color:#655646}
+.testimonials{background:#FFF9EF}
+.final-cta{background:#987146;color:#fffaf2}
+footer{background:#4A3827;color:#F7E9D0}
+.footer-brand .brand,.footer-links strong{color:#FFF9EF}
+.footer-links a{color:#E8D8C0}
+.footer-disclaimer{border-top-color:rgba(255,249,239,.2);color:#D8C4A9}
+.assessment-topbar{background:rgba(247,233,208,.97);border-bottom-color:#E5D4BB}
+.assessment-progress>div{background:#987146}
+.choice{border-color:#E5D4BB;background:#FFF9EF}
+.choice.selected{border-color:#987146;background:#F4E5CF;box-shadow:inset 0 0 0 1px #987146}
+.result-check{background:#F4E5CF;color:#795735}
+.modal-grid>div{background:#F4E7D2}
+.safety-box{background:#F2E2C8;color:#6D5138}
+.category-card:focus-visible{outline-color:#987146}
+:focus-visible{outline:3px solid rgba(152,113,70,.48);outline-offset:3px}
+@media(hover:hover) and (pointer:fine){.category-card:hover{border-color:#B99870;box-shadow:0 14px 30px rgba(86,61,35,.10)}}

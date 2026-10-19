@@ -225,5 +225,46 @@
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="/app.js" defer></script>
+
+<script>
+/* Self-contained category accordion: kept in the HTML so it works independently of app.js deployment timing. */
+document.addEventListener("click", function (event) {
+  var trigger = event.target.closest("[data-category-toggle]");
+  var closeButton = event.target.closest("[data-category-close]");
+  if (trigger) {
+    var key = trigger.getAttribute("data-category-toggle");
+    var target = document.querySelector('[data-category-panel="' + key + '"]');
+    if (!target) return;
+    var opening = target.hidden;
+    document.querySelectorAll("[data-category-panel]").forEach(function (panel) { panel.hidden = true; });
+    document.querySelectorAll("[data-category-toggle]").forEach(function (button) {
+      button.setAttribute("aria-expanded", "false");
+      var arrow = button.querySelector(".category-arrow");
+      if (arrow) arrow.textContent = "＋";
+    });
+    if (opening) {
+      target.hidden = false;
+      trigger.setAttribute("aria-expanded", "true");
+      var icon = trigger.querySelector(".category-arrow");
+      if (icon) icon.textContent = "−";
+      target.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "nearest" });
+    }
+    return;
+  }
+  if (closeButton) {
+    var panel = closeButton.closest("[data-category-panel]");
+    if (!panel) return;
+    panel.hidden = true;
+    var opener = document.querySelector('[data-category-toggle="' + panel.getAttribute("data-category-panel") + '"]');
+    if (opener) {
+      opener.setAttribute("aria-expanded", "false");
+      var arrow = opener.querySelector(".category-arrow");
+      if (arrow) arrow.textContent = "＋";
+      opener.focus();
+    }
+  }
+});
+</script>
+
 </body>
 </html>

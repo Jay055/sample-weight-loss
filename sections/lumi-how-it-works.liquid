@@ -1,0 +1,239 @@
+{% comment %}
+  BLUE AESTHETICS — How it works
+  Reusable Shopify Online Store 2.0 section. Add to the homepage in the theme editor.
+{% endcomment %}
+
+<section
+  id="blue-how-it-works-{{ section.id }}"
+  class="blue-how-it-works"
+  style="
+    --bhiw-bg: {{ section.settings.section_background }};
+    --bhiw-card: {{ section.settings.card_background }};
+    --bhiw-heading: {{ section.settings.heading_color }};
+    --bhiw-text: {{ section.settings.text_color }};
+    --bhiw-number-bg: {{ section.settings.number_background }};
+    --bhiw-number-color: {{ section.settings.number_color }};
+    --bhiw-radius: {{ section.settings.card_radius }}px;
+    --bhiw-gap: {{ section.settings.card_gap }}px;
+    --bhiw-pad-y: {{ section.settings.section_padding }}px;
+    --bhiw-image-size: {{ section.settings.image_size }}px;
+  "
+>
+  <div class="blue-how-it-works__inner page-width">
+    {% if section.settings.eyebrow != blank %}
+      <p class="blue-how-it-works__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    {% endif %}
+    {% if section.settings.heading != blank %}
+      <h2 class="blue-how-it-works__title">{{ section.settings.heading | escape }}</h2>
+    {% endif %}
+    {% if section.settings.intro != blank %}
+      <div class="blue-how-it-works__intro">{{ section.settings.intro | escape | newline_to_br }}</div>
+    {% endif %}
+
+    <div class="blue-how-it-works__list">
+      {% for block in section.blocks %}
+        {% assign step_link = block.settings.link %}
+        <article class="blue-how-it-works__card" {{ block.shopify_attributes }}>
+          {% if step_link != blank %}<a class="blue-how-it-works__link" href="{{ step_link }}">{% endif %}
+            <div class="blue-how-it-works__image-wrap">
+              {% if block.settings.image != blank %}
+                {{ block.settings.image | image_url: width: 720 | image_tag: class: 'blue-how-it-works__image', widths: '160, 240, 320, 480, 720', sizes: '(max-width: 749px) 34vw, 220px', loading: 'lazy', alt: block.settings.image.alt | default: block.settings.heading }}
+              {% else %}
+                <div class="blue-how-it-works__image-placeholder" aria-hidden="true">
+                  <span>{% cycle '01', '02', '03' %}</span>
+                </div>
+              {% endif %}
+            </div>
+            <div class="blue-how-it-works__content">
+              {% if block.settings.step_number != blank %}
+                <p class="blue-how-it-works__step">{{ block.settings.step_number | escape }}</p>
+              {% endif %}
+              {% if block.settings.heading != blank %}
+                <h3>{{ block.settings.heading | escape }}</h3>
+              {% endif %}
+              {% if block.settings.description != blank %}
+                <div class="blue-how-it-works__description">{{ block.settings.description | escape | newline_to_br }}</div>
+              {% endif %}
+              {% if step_link != blank and block.settings.link_label != blank %}
+                <span class="blue-how-it-works__link-label">{{ block.settings.link_label | escape }} <span aria-hidden="true">→</span></span>
+              {% endif %}
+            </div>
+          {% if step_link != blank %}</a>{% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  #blue-how-it-works-{{ section.id }} {
+    background: var(--bhiw-bg);
+    padding-block: var(--bhiw-pad-y);
+    color: var(--bhiw-text);
+  }
+  #blue-how-it-works-{{ section.id }} .blue-how-it-works__inner {
+    max-width: 1040px;
+    margin-inline: auto;
+  }
+  #blue-how-it-works-{{ section.id }} .blue-how-it-works__eyebrow {
+    margin: 0 0 10px;
+    color: var(--bhiw-heading);
+    font-size: .76rem;
+    font-weight: 700;
+    letter-spacing: .15em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  #blue-how-it-works-{{ section.id }} .blue-how-it-works__title {
+    margin: 0;
+    color: var(--bhiw-heading);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    line-height: 1.15;
+    text-align: center;
+  }
+  #blue-how-it-works-{{ section.id }} .blue-how-it-works__intro {
+    max-width: 620px;
+    margin: 14px auto 34px;
+    text-align: center;
+    line-height: 1.7;
+  }
+  #blue-how-it-works-{{ section.id }} .blue-how-it-works__list {
+    display: grid;
+    gap: var(--bhiw-gap);
+  }
+  #blue-how-it-works-{{ section.id }} .blue-how-it-works__card {
+    overflow: hidden;
+    border-radius: var(--bhiw-radius);
+    background: var(--bhiw-card);
+    box-shadow: 0 10px 30px rgba(51, 43, 34, .08);
+  }
+  #blue-how-it-works-{{ section.id }} .blue-how-it-works__link {
+    display: flex;
+    align-items: center;
+    gap: clamp(20px, 4vw, 46px);
+    min-width: 0;
+    padding: clamp(18px, 3vw, 30px);
+    color: inherit;
+    text-decoration: none;
+  }
+  #blue-how-it-works-{{ section.id }} .blue-how-it-works__image-wrap {
+    flex: 0 0 var(--bhiw-image-size);
+    width: var(--bhiw-image-size);
+    height: var(--bhiw-image-size);
+    overflow: hidden;
+    border-radius: 50%;
+    background: #e8ddd0;
+  }
+  #blue-how-it-works-{{ section.id }} .blue-how-it-works__image,
+  #blue-how-it-works-{{ section.id }} .blue-how-it-works__image-placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  #blue-how-it-works-{{ section.id }} .blue-how-it-works__image-placeholder {
+    display: grid;
+    place-items: center;
+    color: var(--bhiw-heading);
+    font-family: Georgia, serif;
+    font-size: 2rem;
+  }
+  #blue-how-it-works-{{ section.id }} .blue-how-it-works__content { flex: 1 1 auto; min-width: 0; }
+  #blue-how-it-works-{{ section.id }} .blue-how-it-works__step {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 46px;
+    min-height: 32px;
+    margin: 0 0 12px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: var(--bhiw-number-bg);
+    color: var(--bhiw-number-color);
+    font-size: .82rem;
+    font-weight: 800;
+    letter-spacing: .04em;
+  }
+  #blue-how-it-works-{{ section.id }} .blue-how-it-works__content h3 {
+    margin: 0 0 10px;
+    color: var(--bhiw-heading);
+    font-size: clamp(1.2rem, 2vw, 1.65rem);
+    line-height: 1.25;
+  }
+  #blue-how-it-works-{{ section.id }} .blue-how-it-works__description { line-height: 1.75; }
+  #blue-how-it-works-{{ section.id }} .blue-how-it-works__link-label {
+    display: inline-block;
+    margin-top: 14px;
+    color: var(--bhiw-heading);
+    font-weight: 700;
+  }
+  #blue-how-it-works-{{ section.id }} .blue-how-it-works__card:has(.blue-how-it-works__link):hover {
+    box-shadow: 0 14px 34px rgba(51, 43, 34, .13);
+  }
+  @media (max-width: 749px) {
+    #blue-how-it-works-{{ section.id }} { --bhiw-image-size: min({{ section.settings.mobile_image_size }}px, 34vw); }
+    #blue-how-it-works-{{ section.id }} .blue-how-it-works__intro { margin-bottom: 24px; }
+    #blue-how-it-works-{{ section.id }} .blue-how-it-works__link {
+      gap: 16px;
+      padding: 16px;
+      align-items: center;
+    }
+    #blue-how-it-works-{{ section.id }} .blue-how-it-works__step { margin-bottom: 8px; }
+    #blue-how-it-works-{{ section.id }} .blue-how-it-works__content h3 { font-size: clamp(1rem, 4.1vw, 1.25rem); }
+    #blue-how-it-works-{{ section.id }} .blue-how-it-works__description { font-size: .9rem; line-height: 1.55; overflow-wrap: anywhere; }
+  }
+  @media (max-width: 380px) {
+    #blue-how-it-works-{{ section.id }} .blue-how-it-works__link { gap: 12px; padding: 12px; }
+    #blue-how-it-works-{{ section.id }} .blue-how-it-works__step { min-width: 40px; padding-inline: 8px; }
+    #blue-how-it-works-{{ section.id }} .blue-how-it-works__content h3 { font-size: 1rem; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "How it works",
+  "tag": "section",
+  "class": "section-blue-how-it-works",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "A considered approach" },
+    { "type": "text", "id": "heading", "label": "Section heading", "default": "How It Works" },
+    { "type": "textarea", "id": "intro", "label": "Intro text", "default": "A clear, considered process from exploring your options to appropriate fulfilment." },
+    { "type": "color", "id": "section_background", "label": "Section background", "default": "#F7F1E8" },
+    { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFFCF7" },
+    { "type": "color", "id": "heading_color", "label": "Heading colour", "default": "#A96F4D" },
+    { "type": "color", "id": "text_color", "label": "Body text colour", "default": "#343A3D" },
+    { "type": "color", "id": "number_background", "label": "Step number background", "default": "#E8D4C2" },
+    { "type": "color", "id": "number_color", "label": "Step number colour", "default": "#75472F" },
+    { "type": "range", "id": "section_padding", "label": "Section vertical spacing", "min": 24, "max": 120, "step": 4, "unit": "px", "default": 64 },
+    { "type": "range", "id": "card_gap", "label": "Space between cards", "min": 12, "max": 48, "step": 4, "unit": "px", "default": 24 },
+    { "type": "range", "id": "card_radius", "label": "Card corner radius", "min": 8, "max": 32, "step": 2, "unit": "px", "default": 18 },
+    { "type": "range", "id": "image_size", "label": "Desktop image diameter", "min": 120, "max": 260, "step": 10, "unit": "px", "default": 190 },
+    { "type": "range", "id": "mobile_image_size", "label": "Mobile image diameter", "min": 76, "max": 150, "step": 2, "unit": "px", "default": 108 }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "How it works step",
+      "settings": [
+        { "type": "text", "id": "step_number", "label": "Step number", "default": "Step 1" },
+        { "type": "image_picker", "id": "image", "label": "Step image" },
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Choose Your Product" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "Explore our product range and select the product you want to learn more about." },
+        { "type": "url", "id": "link", "label": "Optional destination" },
+        { "type": "text", "id": "link_label", "label": "Optional link label", "default": "Learn more" }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "How it works",
+      "blocks": [
+        { "type": "step", "settings": { "step_number": "Step 1", "heading": "Choose Your Product", "description": "Explore our product range and select the product you want to learn more about." } },
+        { "type": "step", "settings": { "step_number": "Step 2", "heading": "Professional Consultation", "description": "Complete the required consultation and suitability assessment with an appropriately qualified healthcare professional." } },
+        { "type": "step", "settings": { "step_number": "Step 3", "heading": "Fulfilment & Delivery", "description": "Where permitted, approved orders are prepared and delivered through the appropriate pharmacy and fulfilment process." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

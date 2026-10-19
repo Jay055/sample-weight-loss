@@ -138,3 +138,69 @@ footer{padding:55px 7vw 90px;background:#211c18;color:#d9d2ca;display:grid;grid-
 .education-text-only .education-links strong{color:var(--blue);font-size:14px;font-weight:700}
 .education-text-only .education-links>a:hover strong{text-decoration:underline;text-underline-offset:4px}
 @media(max-width:700px){.education-text-only .education-links{grid-template-columns:1fr;gap:8px;margin-top:22px}.education-text-only .education-links>a{padding:18px 0}.education-text-only .education-links>a>span{margin-bottom:10px}.education-text-only .education-links h3{margin-bottom:10px;font-size:24px}}
+
+
+/* BLUE AESTHETICS — unified premium colour system */
+:root{
+  --ivory:#F7F4EE;
+  --paper:#FFFDFA;
+  --blue:#174A8B;
+  --blue2:#103968;
+  --ink:#202A35;
+  --muted:#68727B;
+  --caramel:#B77A55;
+  --sand:#E8D8C8;
+  --line:#E1DDD5;
+  --shadow:0 22px 65px rgba(25,43,63,.09);
+}
+body{background:var(--ivory);color:var(--ink)}
+.announcement{background:var(--blue);color:#fff}
+.site-header{background:rgba(247,244,238,.95);border-bottom-color:rgba(23,74,139,.10)}
+.brand-mark{background:var(--blue)}
+.nav a:hover,.editorial-link:hover{color:#B77A55}
+.button-blue{background:var(--blue);box-shadow:0 10px 26px rgba(23,74,139,.16)}
+.button-blue:hover{background:var(--blue2)}
+.hero-card{background:rgba(255,253,250,.97);border:1px solid rgba(23,74,139,.08)}
+.trust-section{border-color:var(--line)}
+.trust-section article+article{border-left-color:var(--line)}
+.section-intro{background:var(--ivory)}
+.category-section{background:#EEF3F7;color:var(--ink)}
+.category-card-blue{background:#E0EAF3}
+.category-card-ice{background:#F3F6F8}
+.category-card-white{background:#FFFDFA}
+.category-card{border-color:#D6E0E9;color:#23384C}
+.category-art{border-color:#D7E1EA;background:linear-gradient(145deg,#FFFDFA,#EAF0F5)}
+.category-monogram,.category-arrow{color:var(--blue)}
+.category-art-label{color:#63798D}
+.category-toggle[aria-expanded="true"]{border-color:var(--blue);box-shadow:0 0 0 2px rgba(23,74,139,.10)}
+.category-price-panel{border-color:#D8E1E9;background:#FFFDFA}
+.category-price-item{border-color:#E0E7ED;background:#F4F7F9}
+.category-price-item>div>strong,.category-price-panel-heading h3{color:#20364A}
+.category-price{color:var(--blue)}
+.category-panel-close{border-color:#D8E1E9;background:#F0F4F7;color:var(--blue)}
+.how-steps-section{background:#F4EFE7;color:var(--ink)}
+.how-step-card{background:#FFFDFA;border-color:rgba(183,122,85,.13);box-shadow:0 12px 32px rgba(31,43,55,.07)}
+.how-steps-heading h2,.how-step-copy h3{color:#A66E4C}
+.how-step-number{background:#EADBCB;color:#75472F}
+.how-step-copy p{color:#5D6468}
+.editorial-feature{background:#E8EEF4;border:1px solid rgba(23,74,139,.08)}
+.editorial-copy h2{color:#202A35}
+.editorial-copy h2 em{color:var(--blue)}
+.editorial-copy p{color:#56616C}
+.testimonials{background:#FFFDFA}
+.final-cta{background:var(--blue);color:#fff}
+footer{background:#142A43;color:#E0E7EF}
+.footer-brand .brand{color:#fff}
+.footer-links strong{color:#fff}
+.footer-links a{color:#C1CDDA}
+.footer-disclaimer{border-top-color:rgba(255,255,255,.16);color:#AEBCCC}
+.assessment-topbar{background:rgba(247,244,238,.96);border-bottom-color:var(--line)}
+.assessment-progress>div{background:var(--blue)}
+.choice{border-color:#D7DDE3;background:#FFFDFA}
+.choice.selected{border-color:var(--blue);background:#EAF0F7;box-shadow:inset 0 0 0 1px var(--blue)}
+.result-check{background:#EAF0F7;color:var(--blue)}
+.modal-grid>div{background:#F0F3F6}
+.safety-box{background:#F2E6DC;color:#6A5143}
+@media(hover:hover) and (pointer:fine){
+ .category-card:hover{border-color:#9BB2C8;box-shadow:0 14px 30px rgba(23,74,139,.09)}
+}

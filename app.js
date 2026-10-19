@@ -183,7 +183,9 @@ document.querySelectorAll(".product-image-link").forEach(link => {
 document.addEventListener("keydown", event => {
   if (event.key !== "Escape") return;
 
-  if (assessmentShell.classList.contains("open")) {
+  if (contactShell?.classList.contains("open")) {
+    closeContactOptions();
+  } else if (assessmentShell.classList.contains("open")) {
     closeAssessment();
   } else if (modalShell.classList.contains("open")) {
     closeTreatment();
@@ -255,4 +257,32 @@ document.querySelectorAll("[data-category-close]").forEach(button => {
       trigger.focus();
     }
   });
+});
+
+/* Contact options: direct WhatsApp or callback request handed off via WhatsApp. */
+const contactShell = document.getElementById("contactShell");
+const contactDialog = contactShell.querySelector(".contact-modal");
+let contactReturnFocus = null;
+function openContactOptions(event) {
+  contactReturnFocus = event.currentTarget;
+  contactShell.classList.add("open");
+  contactShell.setAttribute("aria-hidden", "false");
+  document.body.classList.add("locked");
+  window.setTimeout(() => contactDialog.focus(), 0);
+}
+function closeContactOptions() {
+  contactShell.classList.remove("open");
+  contactShell.setAttribute("aria-hidden", "true");
+  if (!modalShell.classList.contains("open") && !assessmentShell.classList.contains("open")) document.body.classList.remove("locked");
+  contactReturnFocus?.focus();
+}
+document.querySelectorAll("[data-contact-options]").forEach(button => button.addEventListener("click", openContactOptions));
+document.querySelectorAll("[data-close-contact]").forEach(button => button.addEventListener("click", closeContactOptions));
+document.getElementById("callbackForm").addEventListener("submit", event => {
+  event.preventDefault();
+  const name = document.getElementById("callbackName").value.trim();
+  const phone = document.getElementById("callbackPhone").value.trim();
+  if (!name || !phone) return;
+  const message = "Hello LumiPharm, I would like to request a callback when your team is available.\nName: " + name + "\nPhone: " + phone;
+  window.open("https://wa.me/2347013671959?text=" + encodeURIComponent(message), "_blank", "noopener,noreferrer");
 });

@@ -340,3 +340,17 @@ footer{background:#4A3827;color:#F7E9D0}
 .category-card:focus-visible{outline-color:#987146}
 :focus-visible{outline:3px solid rgba(152,113,70,.48);outline-offset:3px}
 @media(hover:hover) and (pointer:fine){.category-card:hover{border-color:#B99870;box-shadow:0 14px 30px rgba(86,61,35,.10)}}
+
+/* LumiPharm brand polish: warm ivory, caramel and elegant serif wordmark. */
+:root{--ivory:#F7E9D0;--paper:#FFF9EF;--blue:#987146;--blue2:#795735;--ink:#35291F;--muted:#786B5C;--caramel:#987146;--sand:#E5D4BB;--line:#E5D4BB;--shadow:0 22px 65px rgba(67,47,27,.10)}
+.site-header{background:rgba(255,249,239,.95);border-bottom-color:rgba(152,113,70,.15)}
+.brand{gap:11px;color:#795735;white-space:nowrap}
+.brand-mark{width:39px;height:39px;display:grid;place-items:center;border:1.5px solid #987146;border-radius:50%;color:#987146;font-family:'Playfair Display',Georgia,serif;font-size:16px;letter-spacing:-.11em;padding-right:3px;flex:0 0 auto}
+.brand-wordmark{font-family:'Playfair Display',Georgia,serif;font-size:27px;font-weight:600;letter-spacing:-.055em}
+.button-blue{background:#987146;border-color:#987146;color:#fff9ef}
+.button-blue:hover{background:#795735;border-color:#795735}
+.announcement{background:#987146;color:#fff9ef}
+footer{background:#4A3827}
+.footer-brand .brand-mark{border-color:#F7E9D0;color:#F7E9D0}
+.footer-brand .brand{color:#FFF9EF}
+@media(max-width:700px){.brand-mark{width:34px;height:34px;font-size:14px}.brand-wordmark{font-size:23px}}

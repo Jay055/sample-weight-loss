@@ -128,3 +128,13 @@ footer{padding:55px 7vw 90px;background:#211c18;color:#d9d2ca;display:grid;grid-
  .how-step-copy h3{font-size:16px}
  .how-step-copy p{font-size:12px}
 }
+
+
+/* Education links remain, while the three homepage education images are removed. */
+.education-text-only .education-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:34px}
+.education-text-only .education-links>a{display:block;min-width:0;padding:24px 22px;border-top:1px solid var(--line);color:inherit;text-decoration:none}
+.education-text-only .education-links>a>span{display:block;margin-bottom:18px;color:var(--blue);font-size:12px;font-weight:700;letter-spacing:.08em}
+.education-text-only .education-links h3{margin:0 0 18px;font-family:"Playfair Display",Georgia,serif;font-size:clamp(20px,2.3vw,27px);font-weight:500;line-height:1.25}
+.education-text-only .education-links strong{color:var(--blue);font-size:14px;font-weight:700}
+.education-text-only .education-links>a:hover strong{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:700px){.education-text-only .education-links{grid-template-columns:1fr;gap:8px;margin-top:22px}.education-text-only .education-links>a{padding:18px 0}.education-text-only .education-links>a>span{margin-bottom:10px}.education-text-only .education-links h3{margin-bottom:10px;font-size:24px}}

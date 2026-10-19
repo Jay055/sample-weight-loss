@@ -354,3 +354,20 @@ footer{background:#4A3827}
 .footer-brand .brand-mark{border-color:#F7E9D0;color:#F7E9D0}
 .footer-brand .brand{color:#FFF9EF}
 @media(max-width:700px){.brand-mark{width:34px;height:34px;font-size:14px}.brand-wordmark{font-size:23px}}
+
+/* Contact options and callback request modal */
+.contact-shell{position:fixed;inset:0;z-index:150;display:none;align-items:center;justify-content:center;padding:20px}
+.contact-shell.open{display:flex}
+.contact-backdrop{position:absolute;inset:0;background:rgba(28,25,21,.56);backdrop-filter:blur(5px)}
+.contact-modal{position:relative;z-index:1;width:min(100%,520px);max-height:min(90vh,820px);overflow:auto;background:#FFF9EF;border:1px solid #E5D4BB;border-radius:18px;padding:clamp(24px,5vw,42px);box-shadow:0 24px 80px rgba(35,25,15,.22)}
+.contact-modal h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(28px,5vw,38px);line-height:1.12;margin:12px 0}
+.contact-modal>p{color:#786B5C;line-height:1.65;margin:0 0 22px}
+.contact-whatsapp{display:flex;align-items:center;justify-content:center;text-align:center}
+.contact-divider{display:flex;align-items:center;gap:12px;margin:24px 0;color:#8B7964;font-size:10px;letter-spacing:.1em}
+.contact-divider:before,.contact-divider:after{content:"";height:1px;background:#E5D4BB;flex:1}
+.callback-form{display:grid;gap:9px}
+.callback-form label{font-size:13px;font-weight:600;color:#4A3827;margin-top:5px}
+.callback-form input{width:100%;border:1px solid #D8C6AE;border-radius:8px;background:#fffdfa;padding:13px 14px;font:inherit;color:#35291F}
+.callback-form input:focus{outline:2px solid #987146;outline-offset:2px}
+.callback-note{font-size:11px;line-height:1.55;color:#786B5C;margin:5px 0 8px}
+@media(max-width:480px){.contact-shell{padding:10px}.contact-modal{padding:26px 20px;border-radius:14px}}

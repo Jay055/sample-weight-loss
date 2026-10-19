@@ -39,9 +39,14 @@
               {% if block.settings.image != blank %}
                 {{ block.settings.image | image_url: width: 720 | image_tag: class: 'blue-how-it-works__image', widths: '160, 240, 320, 480, 720', sizes: '(max-width: 749px) 34vw, 220px', loading: 'lazy', alt: block.settings.image.alt | default: block.settings.heading }}
               {% else %}
-                <div class="blue-how-it-works__image-placeholder" aria-hidden="true">
-                  <span>{% cycle '01', '02', '03' %}</span>
-                </div>
+                {% case forloop.index %}
+                  {% when 1 %}
+                    <img class="blue-how-it-works__image" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=480&q=75" alt="Browsing products online" width="480" height="480" loading="lazy">
+                  {% when 2 %}
+                    <img class="blue-how-it-works__image" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=480&q=75" alt="Healthcare professional consultation" width="480" height="480" loading="lazy">
+                  {% else %}
+                    <img class="blue-how-it-works__image" src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&w=480&q=75" alt="Package prepared for delivery" width="480" height="480" loading="lazy">
+                {% endcase %}
               {% endif %}
             </div>
             <div class="blue-how-it-works__content">

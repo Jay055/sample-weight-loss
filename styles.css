@@ -233,3 +233,24 @@ footer{background:#142A43;color:#E0E7EF}
 .assessment-progress>div{background:#183653}
 .choice.selected{border-color:#183653;background:#EAF0F5;box-shadow:inset 0 0 0 1px #183653}
 .result-check{background:#EAF0F5;color:#183653}
+
+
+/* Brand direction correction: premium sky blue, not navy or electric blue. */
+:root{
+  --blue:#78B7D8;
+  --blue2:#5598BE;
+}
+.brand-mark{background:#78B7D8;color:#102E43}
+.announcement,.button-blue,.final-cta{background:#78B7D8}
+.button-blue{color:#102E43;box-shadow:0 10px 26px rgba(67,139,180,.18)}
+.button-blue:hover{background:#5598BE;color:#102E43}
+.icon-button,.nav a:hover,.editorial-link,.text-link,.category-monogram,.category-arrow,.category-panel-close{color:#5598BE}
+.category-card:focus-visible{outline-color:#5598BE}
+.category-toggle[aria-expanded="true"]{border-color:#78B7D8;box-shadow:0 0 0 2px rgba(120,183,216,.16)}
+.category-price{color:#397DA5}
+.category-art-label{color:#527D96}
+.category-price-item>div>strong,.category-price-panel-heading h3{color:#20364A}
+.assessment-progress>div{background:#78B7D8}
+.choice.selected{border-color:#5598BE;background:#EAF5FB;box-shadow:inset 0 0 0 1px #5598BE}
+.result-check{background:#EAF5FB;color:#397DA5}
+:focus-visible{outline-color:rgba(85,152,190,.42)}

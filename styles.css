@@ -204,3 +204,32 @@ footer{background:#142A43;color:#E0E7EF}
 @media(hover:hover) and (pointer:fine){
  .category-card:hover{border-color:#9BB2C8;box-shadow:0 14px 30px rgba(23,74,139,.09)}
 }
+
+
+/* Brand refinement: replace bright, tech-like blue with understated heritage navy. */
+:root{
+  --blue:#183653;
+  --blue2:#10283F;
+  --ivory:#F7F4EE;
+  --paper:#FFFDFA;
+  --ink:#202A35;
+  --muted:#68727B;
+  --caramel:#B77A55;
+  --sand:#E8D8C8;
+  --line:#E1DDD5;
+}
+.brand-mark{background:#183653;color:#fff}
+.announcement,.button-blue,.final-cta{background:#183653}
+.button-blue:hover{background:#10283F}
+.icon-button,.nav a:hover,.editorial-link,.text-link,.category-monogram,.category-arrow,.category-price,.category-panel-close{color:#183653}
+.category-card:focus-visible{outline-color:#496780}
+.category-toggle[aria-expanded="true"]{border-color:#496780;box-shadow:0 0 0 2px rgba(24,54,83,.10)}
+.category-panel-close{border-color:#D8E1E9;background:#F0F4F7}
+.category-price{color:#315A7D}
+.category-art{border-color:#D7E1EA}
+.category-art-label{color:#647B8E}
+.button-blue{box-shadow:0 10px 26px rgba(24,54,83,.16)}
+:focus-visible{outline-color:rgba(24,54,83,.38)}
+.assessment-progress>div{background:#183653}
+.choice.selected{border-color:#183653;background:#EAF0F5;box-shadow:inset 0 0 0 1px #183653}
+.result-check{background:#EAF0F5;color:#183653}
